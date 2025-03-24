@@ -1,0 +1,74 @@
+package addon;
+
+public class Circular_Access
+{
+	Node last;
+class Node
+{
+		int data;
+		Node next=null;
+		
+		Node(int val)
+		{
+			data=val;
+			next=null;
+	}
+}
+Circular_Access()
+{
+		last=null;
+}
+public void insertAtBegin(int val)
+{
+		Node newnode=new Node(val);
+		if(last==null)
+		{
+			last=newnode;
+			last.next=last;		
+		}
+		else
+		{
+		 newnode.next=last;
+		 last.next=newnode;
+		}
+}
+ public void display()
+ {
+		    Node temp = last.next;
+		    while(temp!=last)
+		    {
+		    	System.out.print(temp.data+"");
+		    	temp=temp.next;
+		    }
+		    System.out.print(temp.data);
+ }
+ public void insertAtEnd(int val)
+ {
+ 		Node newnode=new Node(val);
+ 		if(last==null)
+ 		{
+ 			last=newnode;
+ 			last.next=last;		
+ 		}
+ 		else
+ 		{
+ 		 newnode.next=last;
+ 		 last.next=newnode;
+ 		}
+ }
+ public void deleteAtBegin()
+ {
+	 Node temp=last.next;
+	 last.next=last.next.next;
+	 temp.next=null;
+ }
+ public void deleteAtEnd()
+ {
+	 Node temp=last.next;
+	 last.next=last.next.next;
+	 temp.next=null;
+ }
+		   
+
+ }
+ 
